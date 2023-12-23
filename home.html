@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Steven Universe - Fansite</title>
+    <link rel="stylesheet" href="styleshome.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<!--15/12/23 | -->
+    <header>
+        <a href="home.html" target="_parent" class="mainlogo"><img src="sources/stevlogo4.png" alt="Steven Universe Logo"></a>
+        <div class="search-box">
+            <div class="row">
+                <input type="text" id="input-box" placeholder="  Search here" autocomplete="off">
+                <button class="search-btn">🔍</button>
+            </div>
+            <div class="result-box">
+            </div>
+        </div>
+        <div class="nav_drop"></div><!--media width adjustment purpose-->
+        <div class="navbar">
+            <div class="navbar_items">
+                <a href="home.html" target="_parent">Home</a>
+                <a href="lore.html" target="_parent">Lore</a>
+                <a href="majchara.html" target="_parent">Major Characters</a>
+                <a href="findout.html" target="_parent">Find Out More!</a>
+                <a href="aboutme.html" target="_parent">About Me</a>
+                <a href=" ref.html" target="_parent">References</a>
+            </div>
+        </div>
+    </header>
+    
+<!--16/12/23 | -->
+    <section class="home">
+        <video id="bgclip" src="sources/darkenedbgclip.mp4" autoplay muted loop></video>
+        <div class="content_home">
+            <h1>STEVEN UNIVERSE</h1>
+            <h3>Synopsis</h3>
+            <p>Steven Universe is set in the fictional town of Beach City where the Crystal Gems live in an ancient beachside temple and protect the humanity from monsters and other threats. The Gems are ageless alien warriors who project female humanoid forms from magical gemstones at the core of their being. The Crystal Gems comprise Garnet, Amethyst, Pearl and Steven, a young half-human and half-Gem boy who inherited his gemstone from his mother, the Crystal Gems' former leader Rose Quartz. As Steven tries to understand his gradually expanding range of powers, he spends his days accompanying the Gems on their missions, as well as interacting with his father Greg, his best friend Connie, his magical pet lion, and the other residents of Beach City.</p>
+            <a href="https://www.youtube.com/watch?v=X1Vunh8pW8o" target="_blank" class="trailbutton">Watch Trailer</a>
+            <a href="lore.html" target="_blank" class="trailbutton">Read More</a>
+        </div>
+    </section>
+
+    <script>
+        //variables down here//
+        const navDrop = document.querySelector(".nav_drop");
+        const navbar = document.querySelector(".navbar");
+
+        //variables applied here//
+        navDrop.addEventListener("click", () => {
+            navDrop.classList.toggle("active");
+            navbar.classList.toggle("active");
+        });
+
+        //Bismillah bismillah --spesifically for search bar//
+        let availableKeywords = [
+            'home',
+            'lore',
+            'major characters',
+            'rebecca sugar',
+            'find out more',
+            'references',
+            'steven',
+            'crystal gems',
+        ];
+
+        const resultsBox = document.querySelector(".result-box");
+        const inputBox = document.getElementById("input-box");
+
+        inputBox.onkeyup = function (){
+            let result = [];
+            let input = inputBox.value;
+            if(input.length){
+                result = availableKeywords.filter((keyword)=>{
+                    return keyword.toLowerCase().includes(input.toLowerCase());
+                });
+                console.log(result);
+            }
+            display(result);
+
+            if(!result.length){
+                resultsBox.innerHTML = '';
+            }
+        }
+
+        function display(result){
+            const content = result.map((list)=>{
+                return "<li onclick=selectInput(this)>" + list + "</li>";
+            });
+
+            resultsBox.innerHTML = "<ul>" + content.join('') + "</ul>";
+        }
+
+        function selectInput(list) {
+            inputBox.value = list.innerHTML
+            resultsBox.innerHTML = '';
+        }
+    </script>
+</body>
+
+</html>

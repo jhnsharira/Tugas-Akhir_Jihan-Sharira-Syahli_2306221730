@@ -1,0 +1,648 @@
+* {
+    font-family: 'Rubik', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    z-index: 999;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 75px;
+    transition: 0.5s ease;
+}
+
+.header .mainlogo a{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.header .search-box {
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    margin-left: 10px;
+    border-radius: 8px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+input {
+    flex: 1;
+    height: 30px;
+    background: #ff999943;
+    border-radius: 15px;
+    border: 0;
+    outline: 0;
+    font-size: 18px;
+}
+
+::placeholder {
+    color: rgba(0, 0, 0, 0.546);
+}
+
+.search-btn {
+    margin-left: 12px;
+    flex: 1;
+    height: 30px;
+    width: 30px;
+    background: #ff999943;
+    border-radius: 15px;
+    border: 0;
+    outline: 0;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+}
+
+.result-box ul {
+    border-top: 1px solid #999;
+    padding: 12px 8px;
+}
+
+.result-box ul li {
+    list-style: none;
+    border-radius: 3px;
+    padding: 10px 8px;
+    cursor: pointer;
+}
+
+.result-box ul li:hover {
+    background: #ff999943;
+}
+
+.result-box {
+    max-height: 180px;
+    overflow-y: scroll;
+}
+
+.navbar {
+    position: relative;
+}
+
+.navbar_items a{
+    position: relative;
+    color: white;
+    font-size: 14px;
+    font-weight: 750;
+    text-decoration: none;
+    margin-left: 15px;
+    transition: 0.5s ease;
+}
+
+.navbar_items a:before {
+    content: '';
+    position: absolute;
+    background: white;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    transition: 0.5s ease;
+}
+
+.navbar_items a:hover:before {
+    width: 100%;
+}
+
+/*chara list----------------------------------*/
+.majchara {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.majchara .charalist .chara {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0 0 0 0;
+}
+
+.majchara .charalist .chara img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.majchara .charalist .chara .content {
+    position: absolute;
+    top: 20%;
+    width: 1280px;
+    max-width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-right: 30%;
+    box-sizing: border-box;
+    color: white;
+    text-shadow: 0 5px 10px #0004;
+}
+
+.majchara .charalist .chara .content .species {
+    font-weight: bold;
+    color: #ff9999;
+    letter-spacing: 4px;
+    padding-bottom: 0.5px;
+}
+
+.majchara .charalist .chara .content .title {
+    font-weight: bold;
+    font-size: 5em;
+    letter-spacing: 1px;
+    padding-top: 0;
+    padding-bottom: 0.5em;
+}
+
+.majchara .charalist .chara .content .desc {
+    /* margin-bottom: 65px; */
+    width: 60%;
+    line-height: 1.3em;
+    font-size: 1em;
+    text-shadow: 0 5px 10px #0004;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+/*thumbnail-----------------------------------*/
+.thumbnail {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    width: max-content;
+    z-index: 100;
+    display: flex;
+    gap: 20px;
+}
+
+.thumbnail .chara {
+    width: 150px;
+    height: 220px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.thumbnail .chara img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.thumbnail .chara .content {
+    color: white;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+}
+
+.thumbnail .chara .content .title {
+    font-weight: 500;
+    color: black;
+}
+
+/*arrows-----------------------------------*/
+.arrows {
+    z-index: 100;
+    position: absolute;
+    top: 80%;
+    right: 52%;
+    width: 300px;
+    max-width: 30%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.arrows button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #eee4;
+    border: none;
+    font-family: monospace;
+    color: white;
+    font-weight: bold;
+    font-size: large;
+    transition: .5s;
+}
+
+.arrows button:hover {
+    background-color: white;
+    color: #555;
+}
+
+.majchara .charalist .chara:nth-child(1) {
+    z-index: 1;
+}
+
+/*-----TO BE FIX: doesn't work
+.majchara .charalist .chara:nth-child(1) .content .species,
+.majchara .charalist .chara:nth-child(1) .content .title,
+.majchara .charalist .chara:nth-child(1) .content .topic,
+.majchara .charalist .chara:nth-child(1) .content .desc,
+.majchara .charalist .chara:nth-child(1) .content .btn, {
+    transform: translateY(50px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: showContent .5s 1s linear 1 forwards;
+}*/
+
+@keyframes showContent {
+    to {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateY(0px);
+    }
+}
+
+.majchara .charalist .chara:nth-child(1) .content .title {
+    animation-delay: 1.3s;
+}
+
+.majchara .charalist .chara:nth-child(1) .content .topic {
+    animation-delay: 1.4s;
+}
+
+.majchara .charalist .chara:nth-child(1) .content .desc {
+    animation-delay: 1.6s;
+}
+
+.majchara .charalist .chara:nth-child(1) .content .btn {
+    animation-delay: 1.8s;
+}
+
+/*smooth afterslide*/
+.majchara.next .charalist .chara:nth-child(1) img {
+    width: 150px;
+    height: 220px;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    border-radius: 30px;
+    animation: showImage .5s linear 1 forwards;
+}
+
+@keyframes showImage {
+    to {
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+}
+
+.majchara.next .thumbnail .chara:nth-last-child(1) {
+    overflow: hidden;
+    animation: showThumbnail .5s linear 1 forwards;
+}
+
+.majchara.prev .charalist .chara img {
+    z-index: 100;
+}
+
+@keyframes showThumbnail {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+}
+
+.majchara.next .thumbnail {
+    animation: effectNext .5s linear 1 forwards;
+}
+
+@keyframes effectNext {
+    from {
+        transform: translateX(150px);
+    }
+}
+
+/*delay per slidenya---
+
+.majchara .time {
+    position: absolute;
+    z-index: 1000;
+    width: 0%;
+    height: 3px;
+    background-color: #ff9999;
+    left: 0;
+    top: 0;
+}*/
+
+.majchara.next .time,
+.majchara.prev .time {
+    animation: runningTime 3s linear 1 forwards;
+}
+
+@keyframes runningTime {
+    from { 
+        width: 100%
+    }
+    to {
+        width: 0
+    }
+}
+
+.majchara.prev .charalist .chara:nth-child(2) {
+    z-index: 0;
+}
+
+.majchara.prev .charalist .chara:nth-child(2) img {
+    animation: outFrame 0.5s linear 1 forwards;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+@keyframes outFrame {
+    to {
+        width: 150px;
+        height: 220px;
+        bottom: 50px;
+        left: 50%;
+        border-radius: 20px;
+    }
+}
+
+.majchara.prev .thumbnail .chara:nth-child(1) {
+    overflow: hidden;
+    opacity: 0;
+    animation: showThumbnail .5s linear 1 forwards;
+}
+
+.majchara.next .arrows button,
+.majchara.prev .arrows button{
+    pointer-events: none;
+}
+
+.majchara.prev .charalist .chara:nth-child(2) .content .species,
+.majchara.prev .charalist .chara:nth-child(2) .content .title,
+.majchara.prev .charalist .chara:nth-child(2) .content .topic,
+.majchara.prev .charalist .chara:nth-child(2) .content .des,
+.majchara.prev .charalist .chara:nth-child(2) .content .buttons {
+    animation: contentOut 1.5s linear 1 forwards;
+}
+
+@keyframes contentOut {
+    to {
+        transform: translateY(-150px);
+        filter: blur(20px);
+        opacity: 0;
+    }
+}
+
+/*Bismillah --width adjusment*/
+    @media screen and (max-width: 1160px) {
+        header {
+            padding: 12px 20px;
+        }
+        
+        section {
+            padding: 100px 150px;
+        }
+
+        .nav_drop {
+            background: url(sources/navdropbf.png)no-repeat;
+            background-size: 40px;
+            background-position: center;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            transition: 0.3s ease-in;
+        }
+
+        .nav_drop.active {
+            z-index: 999;
+            background: url(sources/navdropaf.png)no-repeat;
+            background-size: 40px;
+            background-position: center;
+            width: 30px;
+            height: 18px;
+            transition: 0.3s ease-out;
+        }
+
+        .navbar {
+            display: none;
+        }
+
+        .navbar.active {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+        }
+
+        .navbar.active .navbar_items {
+            width: 600px;
+            max-width: 600px;
+            margin: 20px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .navbar_items a{
+            position: relative;
+            color: white;
+            font-size: 1em;
+            font-weight: 750;
+            margin: 20px;
+        }
+
+        .navbar_items a:before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            transition: 0.3s ease;
+        }   
+    }
+
+    @media screen and (max-width: 1040px) {
+        header {
+            padding: 12px 20px;
+        }
+        
+        section {
+            padding: 100px 20px;
+        }
+    
+        .nav_drop {
+            background: url(sources/navdropbf.png)no-repeat;
+            background-size: 40px;
+            background-position: center;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            transition: 0.3s ease-in;
+        }
+    
+        .nav_drop.active {
+            z-index: 999;
+            background: url(sources/navdropaf.png)no-repeat;
+            background-size: 40px;
+            background-position: center;
+            width: 30px;
+            height: 18px;
+            transition: 0.3s ease-out;
+        }
+    
+        .navbar {
+            display: none;
+        }
+    
+        .navbar.active {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+        }
+    
+        .navbar.active .navbar_items {
+            width: 600px;
+            max-width: 600px;
+            margin: 20px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    
+        .navbar_items a{
+            position: relative;
+            color: white;
+            font-size: 1em;
+            font-weight: 750;
+            margin: 20px;
+        }
+    
+        .navbar_items a:before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            transition: 0.3s ease;
+        }   
+    
+        .majchara .charalist .chara .content {
+            padding-right: 0;
+        }
+        .majchara .charalist .chara .title {
+            font-size: 30px;
+        }
+    }
+
+    @media screen and (max-width: 678px) {
+        header {
+            padding: 12px 20px;
+        }
+        
+        section {
+            padding: 100px 20px;
+        }
+
+        .nav_drop {
+            background: url(sources/navdropbf.png)no-repeat;
+            background-size: 40px;
+            background-position: center;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            transition: 0.3s ease-in;
+        }
+
+        .nav_drop.active {
+            z-index: 999;
+            background: url(sources/navdropaf.png)no-repeat;
+            background-size: 40px;
+            background-position: center;
+            width: 30px;
+            height: 18px;
+            transition: 0.3s ease-out;
+        }
+
+        .navbar {
+            display: none;
+        }
+
+        .navbar.active {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+        }
+
+        .navbar.active .navbar_items {
+            width: 600px;
+            max-width: 600px;
+            margin: 20px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .navbar_items a{
+            position: relative;
+            color: white;
+            font-size: 1em;
+            font-weight: 750;
+            margin: 20px;
+        }
+
+        .navbar_items a:before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            transition: 0.3s ease;
+        }   
+
+        .majchara .charalist .chara .content {
+            padding-right: 0;
+        }
+        .majchara .charalist .chara .title {
+            font-size: 30px;
+        }
+    }
+

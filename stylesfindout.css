@@ -1,0 +1,454 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    scroll-behavior: smooth;   
+}
+
+header {
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 75px 0;
+    transition: 0.5s ease;
+    background-color: rgba(33, 33, 33, 0.623);
+    backdrop-filter: blur(4px);
+}
+
+.header .mainlogo a{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.header .search-box {
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    margin-left: 10px;
+    border-radius: 8px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+input {
+    flex: 1;
+    height: 30px;
+    background: #ff999943;
+    border-radius: 15px;
+    border: 0;
+    outline: 0;
+    font-size: 18px;
+}
+
+::placeholder {
+    color: rgba(0, 0, 0, 0.546);
+}
+
+.search-btn {
+    margin-left: 12px;
+    flex: 1;
+    height: 30px;
+    width: 30px;
+    background: #ff999943;
+    border-radius: 15px;
+    border: 0;
+    outline: 0;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+}
+
+.result-box ul {
+    border-top: 1px solid #999;
+    padding: 12px 8px;
+}
+
+.result-box ul li {
+    list-style: none;
+    border-radius: 3px;
+    padding: 10px 8px;
+    cursor: pointer;
+}
+
+.result-box ul li:hover {
+    background: #ff999943;
+}
+
+.result-box {
+    max-height: 180px;
+    overflow-y: scroll;
+}
+
+.navbar {
+    position: relative;
+}
+
+.navbar_items a{
+    position: relative;
+    font-family: 'Rubik', sans-serif;
+    color: white;
+    font-size: 14px;
+    font-weight: 750;
+    text-decoration: none;
+    margin-left: 15px;
+    transition: 0.5s ease;
+}
+
+.navbar_items a:before {
+    content: '';
+    position: absolute;
+    background: white;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    transition: 0.5s ease;
+}
+
+.navbar_items a:hover:before {
+    width: 100%;
+}
+
+#findouthead {
+    z-index: 000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: 'Cabin', sans-serif;
+}
+
+section {
+    padding: 100px 120px;
+}
+
+span {
+    color: #ff9999;
+}
+
+.findout {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-image: url(sources/rebecca.png);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.findout .findout-desc {
+    width: 65%;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.slide {
+    margin-bottom: 20px;
+}
+
+.stat1 {
+    display: inline-block;
+    margin-right: 12px;
+    height: 32px;
+    padding: 0 15px;
+    line-height: 32px;
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 5px;
+    background-color: #ff9999;
+    color: white;
+}
+
+.stat2 {
+    display: inline-block;
+    color: #ff9999;
+    margin-right: 12px;
+    margin-left: 12px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.stat3 {
+    display: inline-block;
+    margin-right: 12px;
+    margin-left: 12px;
+    height: 32px;
+    padding: 0 15px;
+    line-height: 32px;
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 5px;
+    background-color: #ff9999;
+    color: white;
+}
+
+.stat4 {
+    display: inline-block;
+    color: #ff9999;
+    margin-right: 12px;
+    margin-left: 12px;
+    font-size: 20px;
+    font-weight: 500; 
+}
+
+.findout-desc h1 {
+    font-size: 5rem;
+    font-weight: 700;
+    color: black;
+    list-style: 1.1;
+    margin: 0 0 8px;
+}
+
+section .works {
+    display: flex;
+}
+
+.works-desc h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.works-container {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background: white;
+}
+
+.card {
+    height: 500px;
+    margin: 40px;
+    box-shadow: 5px 5px 20px black;
+    overflow: hidden;
+}
+
+.card img {
+    height: 350px;
+    width: 350px;
+    border-radius: 3px;
+}
+
+.intro {
+    height: 70px;
+    max-width: 350px;
+    padding: 6px;
+    box-sizing: border-box;
+    position: relative;
+    bottom: 0;
+    background: rgb (27, 27, 27, .5);
+    color: black;
+    transition: .5s;
+}
+
+.intro h1 {
+    margin: 10px;
+    font-size: 25px;
+}
+
+.intro p {
+    font-size: 20px;
+    visibility: hidden;
+    opacity: 0;
+    margin: 20px;
+}
+
+.card:hover .intro {
+    height: 220px;
+    bottom: 20px;
+    background: black;
+    color: white;
+}
+
+.card:hover .intro p {
+    opacity: 1;
+    visibility: visible;
+}
+
+.card:hover .intro img {
+    transform: scale(1.1) rotate(-3deg);
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+}
+
+footer p {
+    color: black;
+    line-height: 90px;
+}
+
+/*Bismillah --width max 1160: FINDOUT*/
+    @media (max-width: 1160px) {
+        header {
+            padding: 12px 20px;
+        }
+        
+        section {
+            padding: 100px 150px;
+        }
+
+        .nav_drop {
+            background: url(sources/navdropbf.png)no-repeat;
+            background-size: 40px;
+            background-position: center;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            transition: 0.3s ease-in;
+        }
+
+        .nav_drop.active {
+            z-index: 999;
+            background: url(sources/navdropaf.png)no-repeat;
+            background-size: 40px;
+            background-position: center;
+            width: 30px;
+            height: 18px;
+            transition: 0.3s ease-out;
+        }
+
+        .navbar {
+            display: none;
+        }
+
+        .navbar.active {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+        }
+
+        .navbar.active .navbar_items {
+            width: 600px;
+            max-width: 600px;
+            margin: 20px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .navbar_items a{
+            position: relative;
+            color: white;
+            font-size: 1em;
+            font-weight: 750;
+            margin: 20px;
+        }
+
+        .navbar_items a:before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            transition: 0.3s ease;
+        }   
+    }
+
+/*Bismillah --width max 1040: FINDOUT*/
+    @media (max-width: 1040px) {
+        header {
+            padding: 12px 20px;
+        }
+        
+        section {
+            padding: 100px 20px;
+        }
+
+        .nav_drop {
+            background: url(sources/navdropbf.png)no-repeat;
+            background-size: 40px;
+            background-position: center;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            transition: 0.3s ease-in;
+        }
+
+        .nav_drop.active {
+            z-index: 999;
+            background: url(sources/navdropaf.png)no-repeat;
+            background-size: 40px;
+            background-position: center;
+            width: 30px;
+            height: 18px;
+            transition: 0.3s ease-out;
+        }
+
+        .navbar {
+            display: none;
+        }
+
+        .navbar.active {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+        }
+
+        .navbar.active .navbar_items {
+            width: 600px;
+            max-width: 600px;
+            margin: 20px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .navbar_items a{
+            position: relative;
+            color: white;
+            font-size: 1em;
+            font-weight: 750;
+            margin: 20px;
+        }
+
+        .navbar_items a:before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            transition: 0.3s ease;
+        }   
+    }

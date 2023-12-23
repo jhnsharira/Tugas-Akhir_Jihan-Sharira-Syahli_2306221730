@@ -1,0 +1,357 @@
+* {
+    font-family: 'Rubik', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    z-index: 999;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 75px;
+    transition: 0.5s ease;
+}
+
+.header .mainlogo a{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.header .search-box {
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    margin-left: 10px;
+    border-radius: 8px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+input {
+    flex: 1;
+    height: 30px;
+    background: #ff999943;
+    border-radius: 15px;
+    border: 0;
+    outline: 0;
+    font-size: 18px;
+}
+
+::placeholder {
+    color: rgba(0, 0, 0, 0.546);
+}
+
+.search-btn {
+    margin-left: 12px;
+    flex: 1;
+    height: 30px;
+    width: 30px;
+    background: #ff999943;
+    border-radius: 15px;
+    border: 0;
+    outline: 0;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+}
+
+.result-box ul {
+    border-top: 1px solid #999;
+    padding: 12px 8px;
+}
+
+.result-box ul li {
+    list-style: none;
+    border-radius: 3px;
+    padding: 10px 8px;
+    cursor: pointer;
+}
+
+.result-box ul li:hover {
+    background: #ff999943;
+}
+
+.result-box {
+    max-height: 180px;
+    overflow-y: scroll;
+}
+
+.navbar {
+    position: relative;
+}
+
+.navbar_items a{
+    position: relative;
+    color: white;
+    font-size: 14px;
+    font-weight: 750;
+    text-decoration: none;
+    margin-left: 15px;
+    transition: 0.5s ease;
+}
+
+.navbar_items a:before {
+    content: '';
+    position: absolute;
+    background: white;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    transition: 0.5s ease;
+}
+
+.navbar_items a:hover:before {
+    width: 100%;
+}
+
+#bgnotclip {
+    z-index: 000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+section {
+    padding: 100px 120px;
+}
+
+.aboutme {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    background-color: #ff9999;
+}
+
+.aboutme h1 {
+    z-index: 888;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    color: white;
+    font-size: 3em;
+    font-weight: 900;
+    letter-spacing: 5px;
+    line-height: 15px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.aboutme .content-abtme {
+    z-index: 888;
+    color: white;
+    width: 100%;
+    margin-top: 0;
+    background: rgba(33, 33, 33, 0.623);
+    backdrop-filter: blur(4px);
+}
+
+.aboutme .content-abtme img {
+    padding: 15px;
+    float: left;
+    max-width: 240px;
+    height: auto;
+    width: 100%;
+    border-radius: 20px;
+    margin-top: 15px;
+    margin-right: 15px;
+    margin-left: 5px;
+}
+
+.aboutme .content-abtme .aboutme-desc h2 {
+    padding: 15px;
+    font-size: 1.8em;
+    font-weight: 900;
+    letter-spacing: 1px;
+    line-height: 15px;
+    margin-top: 25px;
+}
+
+.aboutme .content-abtme .aboutme-desc p {
+    padding: 15px;
+    line-height: 1.3em;
+    text-shadow: 0 5px 10px #0004;
+    text-align: justify;
+    text-justify: inter-word;
+    margin-bottom: 20px;
+}
+
+.aboutme .content-abtme .contactme {
+    padding-left: 450px;
+}
+
+.aboutme .content-abtme .contactme img {
+    padding: 6px;
+    height: 50px;
+    width: 50px;
+} 
+
+/*Bismillah --width max 11160: ABTME*/
+    @media (max-width: 1160px) {
+        header {
+            padding: 12px 20px;
+        }
+
+        section {
+            padding: 100px 150px;
+        }
+
+        .nav_drop {
+            background: url(sources/navdropbf.png)no-repeat;
+            background-size: 40px;
+            background-position: center;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            transition: 0.3s ease-in;
+        }
+
+        .nav_drop.active {
+            z-index: 999;
+            background: url(sources/navdropaf.png)no-repeat;
+            background-size: 40px;
+            background-position: center;
+            width: 30px;
+            height: 18px;
+            transition: 0.3s ease-out;
+        }
+
+        .navbar {
+            display: none;
+        }
+
+        .navbar.active {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+        }
+
+        .navbar.active .navbar_items {
+            width: 600px;
+            max-width: 600px;
+            margin: 20px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .navbar_items a{
+            position: relative;
+            color: white;
+            font-size: 1em;
+            font-weight: 750;
+            margin: 20px;
+        }
+
+        .navbar_items a:before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            transition: 0.3s ease;
+        }   
+    }
+
+/*Bismillah --width max 1040: ABTME*/
+    @media (max-width: 1040px) {
+        header {
+            padding: 12px 20px;
+        }
+
+        section {
+            padding: 100px 150px;
+        }
+
+        .nav_drop {
+            background: url(sources/navdropbf.png)no-repeat;
+            background-size: 40px;
+            background-position: center;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            transition: 0.3s ease-in;
+        }
+
+        .nav_drop.active {
+            z-index: 999;
+            background: url(sources/navdropaf.png)no-repeat;
+            background-size: 40px;
+            background-position: center;
+            width: 30px;
+            height: 18px;
+            transition: 0.3s ease-out;
+        }
+
+        .navbar {
+            display: none;
+        }
+
+        .navbar.active {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+        }
+
+        .navbar.active .navbar_items {
+            width: 600px;
+            max-width: 600px;
+            margin: 20px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .navbar_items a{
+            position: relative;
+            color: white;
+            font-size: 1em;
+            font-weight: 750;
+            margin: 20px;
+        }
+
+        .navbar_items a:before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            transition: 0.3s ease;
+        }
+    }
